@@ -27,10 +27,10 @@ async def model_fit(
     '/predict',
     summary='Logistic regression predict',
     status_code=status.HTTP_200_OK,
-    response_model=int
+    response_model=list[int]
 )
 async def model_predict(
         logistic_regression_scheme: LogisticRegressionPredict
-) -> int:
+) -> list[int]:
     class_label = logistic_regression_gd.predict(logistic_regression_scheme.X)
     return class_label
