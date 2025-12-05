@@ -76,7 +76,7 @@ class LogisticRegressionPredict(BaseModel):
     @field_validator('X')
     def verify_X(cls, value):
         X = array(value)
-        if X.ndim > 2:
+        if X.ndim != 2:
             raise HTTPException(
                 status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
                 detail='1D or 2D vector must be entered'
