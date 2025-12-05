@@ -79,7 +79,7 @@ class LogisticRegressionPredict(BaseModel):
         if X.ndim != 2:
             raise HTTPException(
                 status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
-                detail='1D or 2D vector must be entered'
+                detail='2D matrix must be entered'
             )
         if isnan(X).any():
             raise HTTPException(
